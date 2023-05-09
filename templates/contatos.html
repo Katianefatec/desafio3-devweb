@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<br>
+<br>
+<!--Corpo da página TXT -->
+
+<style>
+  body
+  {
+  background-image:url("../static/img/fundo2.png");
+  }
+</style>
+<div>
+    <h2>Entre em contato</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+ 
+    <p><hr></p>
+      
+      <!-- <label for="e-mail">Seu e-mail:</label><br>
+      <input type="e-mail" id="e-mail" name="e-mail"><br>
+      <label for="assunto">Assunto:</label><br>
+      <input type="text" id="Assunto" name="assunto"><br>
+      <label for="descrição">Descrição:</label><br>
+      <textarea id="descrição" name="descrição" rows="5" cols="33"></textarea> <br>
+      <input type="submit" id="Enviar"> -->
+              <form method="POST" action="/contatos/">
+
+                Seu e-mail: <br>
+                <input type="email" name="email" required>
+                <br>
+
+                Assunto: <br>
+                <input type="text" name="assunto" required>
+                <br>
+
+                <label for="descricao">Descrição:</label>
+                <br>
+                <textarea id="descricao" name="descricao" rows="5" cols="33" required></textarea> 
+                <br>
+                <button type="submit" name="Enviar">Enviar</button>
+
+                <!-- Descrição : <br>
+                <input type="text" name="descricao" required><br> -->
+              </form>
+
+
+        </td>
+    </tr>
+
+     
+
+
+      <!-- <h4>Todos os direitos reservados</h4>   -->
+  
+
+      {% endblock %}
+
+      
