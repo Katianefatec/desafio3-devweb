@@ -33,8 +33,8 @@ app = Flask(__name__)
 # conexão com o banco de dados
 app.config['MYSQL_Host'] = 'localhost' # 127.0.0.1
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Katy030813'
-app.config['MYSQL_DB'] = 'contatos'
+app.config['MYSQL_PASSWORD'] = 'fatec'
+app.config['MYSQL_DB'] = 'Desafio'
 
 mysql = MySQL(app)
 
@@ -54,23 +54,41 @@ def quem_somos():
 #     return render_template("contatos.html")
 
 
-@app.route('/contatos/', methods=['GET', 'POST'])
-def contatos():
-    if request.method == 'POST':
+# @app.route('/contatos/', methods=['GET', 'POST'])
+# def contatos():
+#     if request.method == 'POST':
+#         email = request.form['email']
+#         assunto = request.form['assunto']
+#         descricao = request.form['descricao']
+        
+#         cur = mysql.connection.cursor()
+#         cur.execute ('INSERT INTO contatos(email, assunto, descricao)  values (%s, %s, %s)', (email, assunto, descricao))
+       
+       
+#         mysql.connection.commit()
+        
+#         cur.close()
+
+#         return 'sucesso'
+#     return render_template('contatos.html')
+
+@app.route("/contatos/", methods=["GET", "POST"])
+def cadastro():
+    if request.method == "POST":
         email = request.form['email']
         assunto = request.form['assunto']
         descricao = request.form['descricao']
-        
+
         cur = mysql.connection.cursor()
-        cur.execute ('INSERT INTO contatos(email, assunto, descricao)  VALUES (%s, %s, %s)', (email, assunto, descricao))
-       
-       
+        cur.execute("INSERT INTO contatos(email, assunto, descricao) values (%s, %s, %s)", (email, assunto, descricao))
+
         mysql.connection.commit()
-        
+
         cur.close()
 
         return 'sucesso'
-    return render_template('contatos.html')
+    return render_template("contatos.html")
+
 
 
 # rota usuários para listar todos os usuário no banco de dados.
